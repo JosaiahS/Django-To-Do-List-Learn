@@ -19,3 +19,30 @@ Date: 1/27/2025
 -- reverse_lazy | Django.urls import reverse_lazy
 
 - Reverse_lazy is a way to redirect the user to another url after a succesful submission. The parameter that is required for the reverse_lazy method is a url string. Specifically, a url string from the urls.py. We use reverse_lazy in class attributes because it delays URL resolution until needed.
+
+-- <a href="{% url 'task-create' %}"> Add Task</a>
+
+- {% url 'task-create' %} This is a Django template tag that dynamically generates the URL for the named URL pattern 'task-create'. Djnaog looks in the urls.py and replaces that tag with the actual URL path. href creates a hyperlink. The 'Add Task' part of the code is what the text that is displayed to the user.
+
+Version 1.0.1
+Author: Josaiah Saldana
+Date: 1/27/2025
+
+-- <form method="POST" action="">
+<input type="submit" value="Submit" />
+
+</form>
+
+- A django template tag that is used to specify that a HTTP POST request will be sent. The 'input type='submit' creates a submit button that submits the form data to the server when clicked. value ="Submit" is the text that will appear inside the submit box.
+
+-- {% csrf_token %}
+
+- A security measure that protects against malicious cross site request forgery.
+
+-- {{form.as_p}}
+
+- Django tag that wraps the form fields as paragraphs. Makes it easier to edit the form.
+
+-- UpdateView | from django.views.generic.edit
+
+- A django class based view designed to update objects created utilizing the CreateView class based view. It used the same form as the CreateView which is '(name_of_app)\_form.html'
