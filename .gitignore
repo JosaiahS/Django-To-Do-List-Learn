@@ -1,0 +1,32 @@
+# Python compiled files
+*.pyc
+__pycache__/
+
+# Environment variables
+.env
+
+# Local settings
+settings_local.py
+
+# SQLite database
+db.sqlite3
+
+# Static and media files
+staticfiles/
+media/
+
+# Virtual environments
+venv/
+.venv/
+
+# Logs
+*.log
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# Other
+.DS_Store
+*.bak
+todo_list/settings.py
