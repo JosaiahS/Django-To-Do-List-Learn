@@ -58,3 +58,17 @@ Date: 1/29/2025
 --DeleteView | from django.views.generic.edit import DeleteView
 
 - A django class based view designed to delete objects from database. Django expects a POST request from a template/base html called "name_of_app_confirm_delete.html". It is implemented vy creating a class based view in views.py, creating a url in urls.py, creating a POST request on task_confirm_delete.html and then updating task_list.html.
+
+Version 1.0.3
+Author: Josaiah Saldana
+Date: 1/29/2025
+
+**What I Learned**
+
+-- LoginView | from django.contrib.auth.views import LoginView
+
+- LoginView is a django class based view that has much of the functionality for login built-in. Allowing simpler implementation of login functionality. Django LoginView by default expects a template called 'login.html' where a form post request will be implemented for the login.
+
+-- LogoutView | from django.contrib.auth.views import LogoutView
+
+- LogoutView is a django class based view that allows for simpler implementation of logout functionality. It used to work for both get and post requests until Django 4.1 which only allows by default post requests for logoutview for security reasons such as csrf.
