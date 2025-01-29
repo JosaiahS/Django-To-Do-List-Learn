@@ -10,7 +10,7 @@ Date: 1/27/2025
 
 -- context_object_name
 
-- context_object_name is an attribute that can be defined in a class based view to specify the name of a variable that will be used to pass the object from the view template. I used it to specify the name of some class based view to something like 'task'.
+- context_object_name is an attribute that can be defined in a class based view to specify the name of a variable that will be used to pass the object from the view template. I used it to specify the name of some class based view to something like 'task'. Only affects the variable name used in the template.
 
 -- CreateView | from django.views.generic.edit import CreateView
 
@@ -27,6 +27,8 @@ Date: 1/27/2025
 Version 1.0.1
 Author: Josaiah Saldana
 Date: 1/27/2025
+
+**What I Learned**
 
 -- <form method="POST" action="">
 <input type="submit" value="Submit" />
@@ -46,3 +48,13 @@ Date: 1/27/2025
 -- UpdateView | from django.views.generic.edit
 
 - A django class based view designed to update objects created utilizing the CreateView class based view. It used the same form as the CreateView which is '(name_of_app)\_form.html'
+
+Version 1.0.2
+Author: Josaiah Saldana
+Date: 1/29/2025
+
+**What I Learned**
+
+--DeleteView | from django.views.generic.edit import DeleteView
+
+- A django class based view designed to delete objects from database. Django expects a POST request from a template/base html called "name_of_app_confirm_delete.html". It is implemented vy creating a class based view in views.py, creating a url in urls.py, creating a POST request on task_confirm_delete.html and then updating task_list.html.
