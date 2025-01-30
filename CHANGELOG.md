@@ -1,3 +1,6 @@
+This symbol "--" represents a topic.
+This symbol "-" represents an explanation of the topic
+
 Version 1.0.0
 Author: Josaiah Saldana
 Date: 1/27/2025
@@ -72,3 +75,39 @@ Date: 1/29/2025
 -- LogoutView | from django.contrib.auth.views import LogoutView
 
 - LogoutView is a django class based view that allows for simpler implementation of logout functionality. It used to work for both get and post requests until Django 4.1 which only allows by default post requests for logoutview for security reasons such as csrf.
+
+Version 1.0.4
+Author: Josaiah Saldana
+Date: 1/30/2025
+
+**What I Learned**
+
+-- LoginRequireMixin | from django.contrib.auth.mixins import LoginRequireMixin
+
+- This is a way to ensure that users can manipulate what they are allowed to manipulate only if they are logged into their account.
+
+--LOGIN_URL = 'login' | settings.py
+
+- This is used to redirect users to the login page if they try to access a part that they are not allowed to access due to the LoginRequireMixin.
+
+-- get_context_data
+
+- Is used to override the default get_context_data method.
+
+-- context = super().get_context_data(\*\*kwargs)
+
+- This is used to trigger the function belonging to the super parent to gather data. kwargs is used to pass additional parameters.
+
+-- context['tasks'] = context['tasks'].filter(user=self.request.user)
+
+- This is used to filter the tasks that are shown only to their respective users. Users will not be allowed to see tasks that are not their own.
+
+-- context['count'] = context['tasks'].filter(complete=False).count()
+
+- This adds a new count key that will keep track of the number of incomplete tasks.
+
+-- def form_valid(self, form):
+form.instance.user = self.request.user
+return super(TaskCreate,self).form_valid(form)
+
+- The purpose of this method is to automatically assign a task to the current logged in user instead of allowing them to choose the user.
