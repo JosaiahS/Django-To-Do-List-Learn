@@ -111,3 +111,9 @@ form.instance.user = self.request.user
 return super(TaskCreate,self).form_valid(form)
 
 - The purpose of this method is to automatically assign a task to the current logged in user instead of allowing them to choose the user.
+
+Version 1.0.5
+Author: Josaiah Saldana
+Date: 2/1/2025
+
+Updated pages with style header
