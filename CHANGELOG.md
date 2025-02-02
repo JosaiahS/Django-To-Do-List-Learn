@@ -117,3 +117,27 @@ Author: Josaiah Saldana
 Date: 2/1/2025
 
 Updated pages with style header
+
+Version 1.0.6
+Author: Josaiah Saldana
+Date: 2/1/2025
+
+**What I Learned**
+
+--<form method="GET">
+<input type="text" name="search-area" value="{{search_input}}">
+<input type="submit" value="Search">
+
+  </form>
+ This form implements a search feature for tasks using a GET request. When the user submits the form, the text they type into the input field is sent to the server as a URL parameter. The name attribute of the input (search-area) acts as the key in this URL parameter, and the search term they typed becomes the value associated with that key. The server uses this key-value pair to find and return matching tasks.
+
+--search_input = self.request.GET.get('search-area') or ''
+
+- Used to retrieve the contents of the GET request. It also handles if the GET request is empty
+
+--if search_input:
+context['tasks'] = context['tasks'].filter(
+title\_\_startswith=search_input)
+context['search_input'] = search_input
+
+- If the search_input is not empty, the code will filter out the tasks using the search_input variable. We then ensure that the html file is able to recognize the {{search_input}} and replace it with the value.

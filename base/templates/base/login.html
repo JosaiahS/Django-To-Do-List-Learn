@@ -2,6 +2,8 @@
 
 <form method="post">
   {% csrf_token %} {{form.as_p}}
-  <input type="submit" value="Login" />
-  <a href="{% url 'tasks' %}">Tasks</a>
+  <body>
+    <input type="submit" value="Login" />
+    <a href="{% url 'tasks' %}">Tasks</a>
+  </body>
 </form>

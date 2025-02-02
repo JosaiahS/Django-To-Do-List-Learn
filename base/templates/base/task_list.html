@@ -3,7 +3,7 @@
 <head>
   <title>Tasks</title>
 </head>
-<body style="background-color:powderblue">
+<body>
 <!-- In your template -->
 {% if request.user.is_authenticated %}
   <p>Welcome to your tasks {{ request.user }}</p>
@@ -16,9 +16,15 @@
 {% else %}
   <a href="{% url 'login' %}">Login</a>
 {% endif %}
-<hr>
+
   <h2>Task List</h2>
   <a href="{% url 'task-create' %}"> Add Task</a>
+
+  <form method="GET">
+    <input type="text" name="search-area" value="{{search_input}}">
+  <input type="submit" value="Search">
+  </form>
+
 
   <table>
     {% for task in tasks%}
@@ -32,7 +38,7 @@
     <h3>No items in list</h3>
     {% endfor %}
   </table>
-  <hr>
+  
 </form>
 </body>
 </html>
