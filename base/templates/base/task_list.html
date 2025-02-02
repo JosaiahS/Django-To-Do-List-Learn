@@ -1,3 +1,7 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,13 +28,10 @@
     <input type="text" name="search-area" value="{{search_input}}">
   <input type="submit" value="Search">
   </form>
-
-
   <table>
     {% for task in tasks%}
     <tr>
       <td>{{task.title}}</td>
-      <td><a href="{% url 'task' task.id %}">View</a></td>
       <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
       <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
     </tr>
@@ -42,3 +43,6 @@
 </form>
 </body>
 </html>
+{% endblock content %}
+
+
