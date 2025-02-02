@@ -141,3 +141,37 @@ title\_\_startswith=search_input)
 context['search_input'] = search_input
 
 - If the search_input is not empty, the code will filter out the tasks using the search_input variable. We then ensure that the html file is able to recognize the {{search_input}} and replace it with the value.
+
+Version 1.0.7
+Author: Josaiah Saldana
+Date: 2/1/2025
+Branch: Register/main
+
+**What I Learned**
+
+-- FormView | from django.views.generic.edit import FormView
+
+- Form view is a way to render forms that will be used for submissions.
+
+-- UserCreationForm | from django.contrib.auth.forms import UserCreationForm
+
+- Django form designed to for user registration.
+
+-- form_class
+
+- Attribute that indicates what form a view should use.
+
+-- def form_valid(self, form):
+user=form.save()
+if user is not None:
+login(self.request, user)
+return super(RegisterPage, self).form_valid(form)
+
+- user=form.save() saves the data from the form to the database which creates a new user. The if statement checks if the user already exists within the database. login will automatically login the user if they already exist. Super is called to complete the default behavior of the method is executed.
+
+-- def get(self, *args, \*\*kwargs):
+if self.request.user.is_authenticated:
+return redirect('tasks')
+return super(RegisterPage,self).get(*args, \*\*kwargs)
+
+- This simply redirects the user if the user is already logged in with an account. We call super to ensure the default behavior is completed .get(\*args, \*\*kwargs) with the new information.
